@@ -29,6 +29,13 @@ public class Board {
     }
 
     void printBoard() {
+
+        for (int i=0; i < height; i++) {
+            for (int j=0; j < width; j++) {
+                board.get(i).get(j).setCharacter(".");
+            }
+        }
+
         for (Element element : elementsOfBoard) {
             List<Position> positions  = element.getPositionDetails();
             for (Position position : positions) {

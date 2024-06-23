@@ -28,21 +28,26 @@ public class Snake implements Element {
         return snakeBody.get(snakeBody.size() - 1);
     }
 
+    public void setHeadDirection(Direction inputKey) {
+        this.headDirection = inputKey;
+    }
+
     Position getNextPosition() {
 
         Position nextPosition;
         Position head = this.getHead();
 
         if (headDirection == Direction.Up) {
+            nextPosition = new Position(head.getXCoordinate() - 1, head.getYCoordinate(), snakeElement);
 
-            nextPosition = new Position(head.getXCoordinate(), head.getYCoordinate() - 1);
         } else if (headDirection == Direction.Right) {
-            nextPosition = new Position(head.getXCoordinate() + 1, head.getYCoordinate() );
+            nextPosition = new Position(head.getXCoordinate(), head.getYCoordinate() + 1, snakeElement);
 
         } else if (headDirection == Direction.Down) {
-            nextPosition = new Position(head.getXCoordinate(), head.getYCoordinate() + 1);
+            nextPosition = new Position(head.getXCoordinate() + 1, head.getYCoordinate(), snakeElement);
+
         } else {
-            nextPosition = new Position(head.getXCoordinate() - 1, head.getYCoordinate());
+            nextPosition = new Position(head.getXCoordinate(), head.getYCoordinate() - 1, snakeElement);
         }
 
         return nextPosition;
@@ -63,6 +68,7 @@ public class Snake implements Element {
     void setHeadDirectionToLeft() {
         headDirection = Direction.Left;
     }
+
 
     void moveSnake() {
         snakeBody.add(this.getNextPosition());

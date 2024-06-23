@@ -17,8 +17,6 @@ public class SnakeGame {
             case 97:
                 headDirection = Direction.Left;
                 break;
-            default:
-                headDirection = Direction.NA;
         }
 
         return headDirection;
@@ -26,7 +24,7 @@ public class SnakeGame {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        Direction headDirection = Direction.Right;
+        Direction headDirection;
 
         Board newBoard = new Board(10, 10);
         Apple newApple = new Apple(newBoard);
@@ -38,9 +36,11 @@ public class SnakeGame {
         while( !(newSnake.collidingWithWall(newBoard)) ) {
             System.out.println("Choose Direction from (w, d, s, a): ");
             int inputKey = (int) scan.next().charAt(0);
-            headDirection = getDirection(inputKey);
 
-            System.out.println(headDirection);
+            headDirection = getDirection(inputKey);
+            newSnake.setHeadDirection(headDirection);
+
+            newSnake.moveSnake();
 
             newBoard.printBoard();
         }
