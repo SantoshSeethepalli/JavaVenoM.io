@@ -54,4 +54,8 @@ public class Board {
     public void addElement(final Element element) {
         elementsOfBoard.add(element);
     }
+
+    public void deleteElement(final Element element) {
+        elementsOfBoard.remove(element);
+    }
 }

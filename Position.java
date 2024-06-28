@@ -35,4 +35,9 @@ public class Position {
     public String toString() {
         return character;
     }
+
+    public boolean equals(Position pos) {
+        return this.getXCoordinate() == pos.getXCoordinate() &&
+                this.getYCoordinate() == pos.getYCoordinate();
+    }
 }

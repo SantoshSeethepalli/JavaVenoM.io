@@ -22,7 +22,7 @@ public class SnakeGame {
         return headDirection;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IndexOutOfBoundsException {
         Scanner scan = new Scanner(System.in);
         Direction headDirection;
 
@@ -33,18 +33,30 @@ public class SnakeGame {
         newBoard.addElement(newApple);
         newBoard.addElement(newSnake);
 
-        while( !(newSnake.collidingWithWall(newBoard)) ) {
-            System.out.println("Choose Direction from (w, d, s, a): ");
-            int inputKey = (int) scan.next().charAt(0);
 
-            headDirection = getDirection(inputKey);
-            newSnake.setHeadDirection(headDirection);
+        try {
+            while (!(newSnake.collidingWithWall(newBoard))) {
+                System.out.println("Choose Direction from (w, d, s, a): ");
+                int inputKey = (int) scan.next().charAt(0);
 
-            newSnake.moveSnake();
+                headDirection = getDirection(inputKey);
+                newSnake.setHeadDirection(headDirection);
 
-            newBoard.printBoard();
+                newSnake.moveSnake();
+                if (newSnake.getHead().equals(newApple.getPosition())) {
+                    newSnake.increaseSize();
+
+                    newBoard.deleteElement(newApple);
+                    newApple = new Apple(newBoard);
+                    newBoard.addElement(newApple);
+                }
+
+                newBoard.printBoard();
+            }
+        } catch(IndexOutOfBoundsException e) {
+            System.out.println("Snake Hit the wall!!");
+
         }
-
     }
 }
 

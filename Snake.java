@@ -24,7 +24,7 @@ public class Snake implements Element {
         return snakeBody;
     }
 
-    Position getHead() {
+    public Position getHead() {
         return snakeBody.get(snakeBody.size() - 1);
     }
 
@@ -94,6 +94,10 @@ public class Snake implements Element {
         for (Position x : snakeBody) {
             System.out.println( x.getYCoordinate() + "," + x.getYCoordinate());
         }
+    }
+
+    public void eatApple()  {
+
     }
 
 }
