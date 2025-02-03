@@ -1,4 +1,4 @@
-# Snake Game
+# JavaVenoM.io
 
 ## Overview
 
