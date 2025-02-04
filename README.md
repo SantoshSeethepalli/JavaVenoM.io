@@ -19,7 +19,7 @@ This is a simple implementation of the classic Snake Game built using Java. The 
 ## How to Run
 1. Clone the repository:
    ```
-   git clone https://github.com/SatyaSantosh197/SnakeGame.git
+   git clone https://github.com/SatyaSantosh197/JavaVenoM.io.git
    ```
 2. Navigate to the project directory.
 3. Compile the Java files using:
