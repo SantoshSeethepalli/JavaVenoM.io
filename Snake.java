@@ -75,11 +75,17 @@ public class Snake implements Element {
         snakeBody.remove(0);
     }
 
-    public boolean collidingWithWall(Board board){
-        if((this.getHead().getXCoordinate() == board.getHeight() ||
-                this.getHead().getXCoordinate() == board.getWidth() ||
-                this.getHead().getYCoordinate() == board.getHeight() ||
-                this.getHead().getYCoordinate() == board.getWidth())) {
+    public boolean collidingWithWall(Board board) {
+
+        int rightWall = board.getWidth() - 1;
+        int leftWall = 0;
+        int aboveWall = 0;
+        int belowWall = board.getHeight() - 1;
+
+        if(this.getHead().getXCoordinate() > rightWall ||
+            this.getHead().getXCoordinate() < leftWall ||
+            this.getHead().getYCoordinate() < aboveWall ||
+            this.getHead().getYCoordinate() > belowWall) {
             return true;
         }
         return false;
@@ -92,7 +98,7 @@ public class Snake implements Element {
     public void print() {
         System.out.println("Snake Position: ");
         for (Position x : snakeBody) {
-            System.out.println( x.getYCoordinate() + "," + x.getYCoordinate());
+            System.out.println( x.getXCoordinate() + "," + x.getYCoordinate());
         }
     }
 

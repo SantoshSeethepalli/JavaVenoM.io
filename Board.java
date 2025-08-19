@@ -13,7 +13,9 @@ public class Board {
     public Board(final int height, final int width){
         this.height = height;
         this.width = width;
+        
         for (int i=0; i < height; i++) {
+
             List<Position> row = new ArrayList<>();
             for (int j=0; j < width; j++) {
                 row.add(new Position(i, j));

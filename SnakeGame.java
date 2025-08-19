@@ -53,6 +53,8 @@ public class SnakeGame {
 
                 newBoard.printBoard();
             }
+
+            scan.close();
         } catch(IndexOutOfBoundsException e) {
             System.out.println("Snake Hit the wall!!");
 
