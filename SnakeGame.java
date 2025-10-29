@@ -44,7 +44,6 @@ public class SnakeGame {
 
                 newSnake.moveSnake();
                 if (newSnake.getHead().equals(newApple.getPosition())) {
-                    newSnake.increaseSize();
 
                     newBoard.deleteElement(newApple);
                     newApple = new Apple(newBoard);
