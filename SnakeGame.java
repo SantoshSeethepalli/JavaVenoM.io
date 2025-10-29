@@ -42,8 +42,12 @@ public class SnakeGame {
                 headDirection = getDirection(inputKey);
                 newSnake.setHeadDirection(headDirection);
 
+                Position previousPos = newSnake.getTail();
+
                 newSnake.moveSnake();
                 if (newSnake.getHead().equals(newApple.getPosition())) {
+
+                    newSnake.increaseSize(previousPos);
 
                     newBoard.deleteElement(newApple);
                     newApple = new Apple(newBoard);

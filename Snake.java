@@ -16,9 +16,10 @@ public class Snake implements Element {
     }
 
 
-    void increaseSize() {
-        snakeBody.add(this.getNextPosition());
+    void increaseSize(Position previousPos) {
+        snakeBody.add(0, previousPos);
     }
+
 
     List<Position> getPosition() {
         return snakeBody;
@@ -27,6 +28,8 @@ public class Snake implements Element {
     public Position getHead() {
         return snakeBody.get(snakeBody.size() - 1);
     }
+
+    public Position getTail() { return snakeBody.get(0);}
 
     public void setHeadDirection(Direction inputKey) {
         this.headDirection = inputKey;
